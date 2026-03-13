@@ -1,0 +1,54 @@
+# ─────────────────────────────────────────────────────────────
+# CLIENT CONFIG: Dr. Smith Cardiology
+# ─────────────────────────────────────────────────────────────
+
+practice_name: "Smith Cardiology Associates"
+doctor_name: "Dr. Sarah Smith"
+specialty: "Cardiology"
+timezone: "America/New_York"
+
+# Business hours (24hr format)
+hours:
+  monday:    { open: "08:00", close: "17:00" }
+  tuesday:   { open: "08:00", close: "17:00" }
+  wednesday: { open: "08:00", close: "17:00" }
+  thursday:  { open: "08:00", close: "17:00" }
+  friday:    { open: "08:00", close: "15:00" }
+  saturday:  closed
+  sunday:    closed
+
+# Phone numbers
+transfer_number: "+12125550100"       # front desk / on-call
+after_hours_number: "+12125550199"    # answering service
+
+# Services this practice offers (controls what tools the agent can use)
+services:
+  - appointments
+  - prescription_refills
+  - test_results
+  - referrals
+  - billing_questions
+
+# Urgent keywords → immediately transfer to human
+urgent_keywords:
+  - chest pain
+  - shortness of breath
+  - heart attack
+  - stroke
+  - can't breathe
+  - severe pain
+  - emergency
+
+# Agent personality / voice instructions
+agent:
+  voice_id: "79a125e8-cd45-4c13-8a67-188112f4dd22"  # Cartesia voice ID
+  greeting: "Thank you for calling Smith Cardiology Associates. I'm the AI assistant. How can I help you today?"
+  hold_message: "Please hold while I check that for you."
+  goodbye: "Thank you for calling Smith Cardiology. Have a great day and take care!"
+
+# EHR / calendar webhook (your backend hits this to actually book)
+webhooks:
+  book_appointment: "https://your-backend.com/api/appointments/book"
+  check_availability: "https://your-backend.com/api/appointments/slots"
+  refill_request: "https://your-backend.com/api/prescriptions/refill"
+  get_test_results: "https://your-backend.com/api/results/patient"
